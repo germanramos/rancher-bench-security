@@ -1,5 +1,6 @@
 rancher-bench-security:
-  image: innotech/rancher-bench-security:{{VERSION}}
+  #image: innotech/rancher-bench-security:{{VERSION}}
+  image: innotech/rancher-bench-security:latest
   # cap_add:
   #   - audit_control
   labels:
@@ -18,12 +19,10 @@ rancher-bench-security:
     - /usr/lib/systemd:/usr/lib/systemd
     - /etc:/etc
     - /tmp:/tmp
+  environment:
+    - INTERVAL={{INTERVAL}}
 
 info:
-  image: rawmind/alpine-base:0.3.3-3
-  entrypoint:
-    - /bin/sh
-    - -c
-    - while true; do cat /tmp/report.txt | nc -l -p 8080; done
+  image: nginx:1.9.15-alpine
   volumes:
-    - /tmp:/tmp
+    - /tmp/cis:/usr/share/nginx/html

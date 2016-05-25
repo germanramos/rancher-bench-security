@@ -1,20 +1,15 @@
 #!/bin/sh
 
-REPORT=/tmp/report.txt
+PWD=/tmp/cis
+FILE=report.txt
 
-echo "Pending..." > $REPORT
+mkdir -p ${PWD}
 
-# logger(){
-#   while true; do
-#     cat $REPORT | nc -l -p 8080
-#   done
-# }
-#
-# logger &
+echo "Pending..." > ${PWD}/${FILE}
 
 while true; do
   /bin/sh docker-bench-security.sh | tee -a report.part
-  mv report.part $REPORT
+  mv report.part ${PWD}/${FILE}
   echo "Waiting 60 seconds for next report"
-  sleep 60
+  sleep ${INTERVAL}
 done

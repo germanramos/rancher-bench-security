@@ -1,8 +1,6 @@
 rancher-bench-security:
   #image: innotech/rancher-bench-security:{{VERSION}}
   image: innotech/rancher-bench-security:latest
-  # cap_add:
-  #   - audit_control
   labels:
     io.rancher.container.pull_image: always
     io.rancher.scheduler.global: 'true'
@@ -24,6 +22,8 @@ rancher-bench-security:
 
 info:
   image: richarvey/nginx-php-fpm:beta70
+  stdin_open: true
+  tty: true
   labels:
     traefik.enable: stack
     traefik.domain: ${TRAEFIK_DOMAIN}

@@ -1,0 +1,4 @@
+.catalog:
+  name: "rancher-bench-security"
+  version: "{{VERSION}}"
+  minimum_rancher_version: "v0.46.0"

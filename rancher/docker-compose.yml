@@ -1,0 +1,28 @@
+rancher-bench-security:
+  image: innotech/rancher-bench-security:{{VERSION}}
+  # cap_add:
+  #   - audit_control
+  labels:
+    io.rancher.container.pull_image: always
+    io.rancher.scheduler.global: 'true'
+    io.rancher.scheduler.affinity:container_label_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
+    io.rancher.sidekicks: info
+    io.rancher.container.hostname_override: container_name
+  net: host
+  pid: host
+  stdin_open: true
+  tty: true
+  volumes:
+    - /var/lib:/var/lib
+    - /var/run/docker.sock:/var/run/docker.sock
+    - /usr/lib/systemd:/usr/lib/systemd
+    - /etc:/etc
+
+info:
+  image: rawmind/alpine-base:0.3.3-3
+  entrypoint:
+    - /bin/sh
+    - -c
+    - while true; do cat /tmp/report.txt | nc -l -p 8080; done
+  volumes:
+    - /tmp:/tmp

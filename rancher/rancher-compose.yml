@@ -2,10 +2,10 @@
   name: "rancher-bench-security"
   version: "{{VERSION}}"
   minimum_rancher_version: "v0.46.0"
-questions:
-  - variable: "INTERVAL"
-    description: "Interval to repeat all the tests"
-    label: "Refresh Interval:"
-    required: true
-    default: 60
-    type: int
+  questions:
+    - variable: "INTERVAL"
+      description: "Interval to repeat all the tests"
+      label: "Refresh Interval:"
+      required: true
+      default: 60
+      type: int

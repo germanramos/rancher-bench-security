@@ -20,7 +20,7 @@ rancher-bench-security:
     - /etc:/etc
     - /tmp:/tmp
   environment:
-    - INTERVAL={{INTERVAL}}
+    - INTERVAL=${INTERVAL}
 
 info:
   image: nginx:1.9.15-alpine

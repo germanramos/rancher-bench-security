@@ -17,3 +17,11 @@
       required: true
       default: 60
       type: int
+
+info:
+  health_check:
+    port: 80
+    interval: 2000
+    unhealthy_threshold: 3
+    healthy_threshold: 1
+    response_timeout: 2000

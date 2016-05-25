@@ -3,6 +3,14 @@
   version: "{{VERSION}}"
   minimum_rancher_version: "v0.46.0"
   questions:
+    # Traefik parameters
+    - variable: "TRAEFIK_DOMAIN"
+      description: "Domain name to route rule"
+      label: "Traefic domain:"
+      required: true
+      default: "ml.innotechapp.com"
+      type: string
+    #  Service parameters
     - variable: "INTERVAL"
       description: "Interval to repeat all the tests"
       label: "Refresh Interval:"

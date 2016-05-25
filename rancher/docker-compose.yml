@@ -23,6 +23,6 @@ rancher-bench-security:
     - INTERVAL=${INTERVAL}
 
 info:
-  image: nginx:1.9.15-alpine
+  image: richarvey/nginx-php-fpm:beta70
   volumes:
-    - /tmp/cis:/usr/share/nginx/html
+    - /tmp/cis:/var/www/html

@@ -5,6 +5,6 @@ RUN apk add gawk
 
 COPY run.sh /docker-bench-security
 COPY ansi2html.sh /docker-bench-security
-COPY web /docker-bench-security
+COPY web /docker-bench-security/web
 
 ENTRYPOINT ["/bin/sh", "run.sh"]

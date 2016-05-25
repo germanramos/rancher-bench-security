@@ -47,7 +47,7 @@ function CallAPI($method, $url, $data = false)
 
   <div id="London" class="tabcontent">
     <h3>London</h3>
-    <?php echo CallApi("GET", "10.42.0.2/report.txt"); ?>
+    <?php echo CallApi("GET", "127.0.0.1/report.txt"); ?>
   </div>
 
   <div id="Paris" class="tabcontent">

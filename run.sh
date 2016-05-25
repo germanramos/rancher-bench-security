@@ -5,7 +5,7 @@ FILE=report.txt
 
 mkdir -p ${PWD}
 
-cp docker-bench-security/web/* ${PWD}
+cp web/* ${PWD}
 
 echo "Pending..." > ${PWD}/${FILE}
 

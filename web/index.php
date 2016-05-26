@@ -1,8 +1,16 @@
 <?php
+
+$dictionary = array(
+    'x1b[1mx1b[33m' => '<span style="color:yellow">',
+    'x1b[1mx1b[34m' => '<span style="color:blue">',
+    'x1b[1mx1b[31m' => '<span style="color:red">',
+    'x1b[1mx1b[32m' => '<span style="color:green">',
+    'x1b[0m'   => '</span>' ,
+);
+
 function CallAPI($method, $url, $data = false)
 {
     $curl = curl_init();
-
     switch ($method)
     {
         case "POST":
@@ -18,18 +26,13 @@ function CallAPI($method, $url, $data = false)
             if ($data)
                 $url = sprintf("%s?%s", $url, http_build_query($data));
     }
-
     // Optional Authentication:
     curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
     curl_setopt($curl, CURLOPT_USERPWD, "username:password");
-
     curl_setopt($curl, CURLOPT_URL, $url);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-
     $result = curl_exec($curl);
-
     curl_close($curl);
-
     return $result;
 }
 ?>
@@ -44,10 +47,11 @@ function CallAPI($method, $url, $data = false)
     <li><a href="#" class="tablinks" onclick="openCity(event, 'Paris')">Paris</a></li>
     <li><a href="#" class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</a></li>
   </ul>
-
   <div id="London" class="tabcontent">
     <h3>London</h3>
-    <?php echo CallApi("GET", "127.0.0.1/report.txt"); ?>
+    <?php
+    echo str_replace(array_keys($dictionary), $dictionary, CallApi("GET", "127.0.0.1/report.txt"));
+    ?>
   </div>
 
   <div id="Paris" class="tabcontent">

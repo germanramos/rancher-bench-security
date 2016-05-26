@@ -57,7 +57,7 @@ function CallAPI($method, $url, $data = false)
     if ( trim($ip) == "Not found" ) break;
   ?>
   <div id="<?php echo $ip ?>" class="tabcontent">
-    <pre><?php echo str_replace(array_keys($dictionary), $dictionary, CallApi("GET", "127.0.0.1/report.txt")); ?></pre>
+    <pre><?php echo str_replace(array_keys($dictionary), $dictionary, CallApi("GET", $ip . "/report.txt")); ?></pre>
   </div>
   <?php } ?>
 </body>

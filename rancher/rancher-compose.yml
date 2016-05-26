@@ -15,7 +15,7 @@
       description: "Interval to repeat all the tests"
       label: "Refresh Interval:"
       required: true
-      default: 60
+      default: 600
       type: int
 
 web-server:

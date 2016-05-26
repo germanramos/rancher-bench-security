@@ -18,7 +18,7 @@
       default: 60
       type: int
 
-info:
+web-server:
   health_check:
     port: 80
     interval: 2000

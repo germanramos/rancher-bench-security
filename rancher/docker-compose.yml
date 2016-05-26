@@ -5,7 +5,6 @@ rancher-bench-security:
     io.rancher.container.pull_image: always
     io.rancher.scheduler.global: 'true'
     io.rancher.scheduler.affinity:container_label_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
-    io.rancher.sidekicks: info
     io.rancher.container.hostname_override: container_name
   net: host
   pid: host
@@ -20,7 +19,7 @@ rancher-bench-security:
   environment:
     - INTERVAL=${INTERVAL}
 
-info:
+web-server:
   image: richarvey/nginx-php-fpm:beta70
   stdin_open: true
   tty: true
@@ -28,5 +27,9 @@ info:
     traefik.enable: stack
     traefik.domain: ${TRAEFIK_DOMAIN}
     traefik.port: 80
+    io.rancher.container.pull_image: always
+    io.rancher.scheduler.global: 'true'
+    io.rancher.scheduler.affinity:container_label_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
+    io.rancher.container.hostname_override: container_name
   volumes:
     - /tmp/cis:/var/www/html

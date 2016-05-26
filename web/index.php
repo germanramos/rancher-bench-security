@@ -43,24 +43,21 @@ function CallAPI($method, $url, $data = false)
 </head>
 <body>
   <ul class="tab">
-    <li><a href="#" class="tablinks" onclick="openCity(event, 'London')">London</a></li>
-    <li><a href="#" class="tablinks" onclick="openCity(event, 'Paris')">Paris</a></li>
-    <li><a href="#" class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</a></li>
+    <?php
+    for ($i = 0; $i <= 10; $i++) {
+      $ip = CallApi("GET", "rancher-metadata/2015-12-19/self/service/containers/" . $i . "/primary_ip");
+      if ( trim($ip) == "Not found" ) break;
+    ?>
+    <li><a href="#" class="tablinks" onclick="openCity(event, '<?php echo $ip ?>')"><?php echo $ip ?></a></li>
+    <?php } ?>
   </ul>
-  <div id="London" class="tabcontent">
-    <h3>London</h3>
-    <pre>
-    <?php echo str_replace(array_keys($dictionary), $dictionary, CallApi("GET", "127.0.0.1/report.txt")); ?>
-    </pre>
+  <?php
+  for ($i = 0; $i <= 10; $i++) {
+    $ip = CallApi("GET", "rancher-metadata/2015-12-19/self/service/containers/" . $i . "/primary_ip");
+    if ( trim($ip) == "Not found" ) break;
+  ?>
+  <div id="<?php echo $ip ?>" class="tabcontent">
+    <pre><?php echo str_replace(array_keys($dictionary), $dictionary, CallApi("GET", "127.0.0.1/report.txt")); ?></pre>
   </div>
-
-  <div id="Paris" class="tabcontent">
-    <h3>Paris</h3>
-    <p>Paris is the capital of France.</p>
-  </div>
-
-  <div id="Tokyo" class="tabcontent">
-    <h3>Tokyo</h3>
-    <p>Tokyo is the capital of Japan.</p>
-  </div>
+  <?php } ?>
 </body>

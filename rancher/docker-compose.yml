@@ -1,6 +1,5 @@
 rancher-bench-security:
-  #image: innotech/rancher-bench-security:{{VERSION}}
-  image: innotech/rancher-bench-security:latest
+  image: innotech/rancher-bench-security:{{VERSION}}
   labels:
     io.rancher.container.pull_image: always
     io.rancher.scheduler.global: 'true'

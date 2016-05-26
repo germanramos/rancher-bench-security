@@ -1,11 +1,11 @@
 <?php
 
 $dictionary = array(
-    'x1b[1mx1b[33m' => '<span style="color:yellow">',
-    'x1b[1mx1b[34m' => '<span style="color:blue">',
-    'x1b[1mx1b[31m' => '<span style="color:red">',
-    'x1b[1mx1b[32m' => '<span style="color:green">',
-    'x1b[0m'   => '</span>' ,
+    '[1;31m' => '<span style="color:red">',
+    '[1;32m' => '<span style="color:green">',
+    '[1;33m' => '<span style="color:yellow">',
+    '[1;34m' => '<span style="color:blue">',
+    '[0m'   => '</span>' ,
 );
 
 function CallAPI($method, $url, $data = false)
@@ -49,9 +49,9 @@ function CallAPI($method, $url, $data = false)
   </ul>
   <div id="London" class="tabcontent">
     <h3>London</h3>
-    <?php
-    echo str_replace(array_keys($dictionary), $dictionary, CallApi("GET", "127.0.0.1/report.txt"));
-    ?>
+    <pre>
+    <?php echo str_replace(array_keys($dictionary), $dictionary, CallApi("GET", "127.0.0.1/report.txt")); ?>
+    </pre>
   </div>
 
   <div id="Paris" class="tabcontent">

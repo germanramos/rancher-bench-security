@@ -5,9 +5,9 @@
   questions:
     # Traefik parameters
     - variable: "TRAEFIK_DOMAIN"
-      description: "Domain name to route rule"
+      description: "Domain name to route rule. Ignore if you do not use traefik proxy"
       label: "Traefic domain:"
-      required: true
+      required: false
       default: "ml.innotechapp.com"
       type: string
     #  Service parameters

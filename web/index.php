@@ -44,7 +44,7 @@ function CallAPI($method, $url, $data = false)
 <body>
   <ul class="tab">
     <?php
-    for ($i = 0; $i <= 10; $i++) {
+    for ($i = 0; $i <= 50; $i++) {
       $ip = CallApi("GET", "rancher-metadata/2015-12-19/self/service/containers/" . $i . "/primary_ip");
       if ( trim($ip) == "Not found" ) break;
     ?>
@@ -52,7 +52,7 @@ function CallAPI($method, $url, $data = false)
     <?php } ?>
   </ul>
   <?php
-  for ($i = 0; $i <= 10; $i++) {
+  for ($i = 0; $i <= 50; $i++) {
     $ip = CallApi("GET", "rancher-metadata/2015-12-19/self/service/containers/" . $i . "/primary_ip");
     if ( trim($ip) == "Not found" ) break;
   ?>

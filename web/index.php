@@ -45,7 +45,7 @@ function CallAPI($method, $url, $data = false)
   <ul class="tab">
     <?php
     for ($i = 0; $i <= 50; $i++) {
-      $ip = CallApi("GET", "rancher-metadata/2015-12-19/self/service/containers/" . $i . "/primary_ip");
+      $ip = CallApi("GET", "rancher-metadata.rancher.internal/2015-12-19/self/service/containers/" . $i . "/primary_ip");
       if ( trim($ip) == "Not found" ) break;
     ?>
     <li><a href="#" class="tablinks" onclick="openCity(event, '<?php echo $ip ?>')"><?php echo $ip ?></a></li>
@@ -53,7 +53,7 @@ function CallAPI($method, $url, $data = false)
   </ul>
   <?php
   for ($i = 0; $i <= 50; $i++) {
-    $ip = CallApi("GET", "rancher-metadata/2015-12-19/self/service/containers/" . $i . "/primary_ip");
+    $ip = CallApi("GET", "rancher-metadata.rancher.internal/2015-12-19/self/service/containers/" . $i . "/primary_ip");
     if ( trim($ip) == "Not found" ) break;
   ?>
   <div id="<?php echo $ip ?>" class="tabcontent">

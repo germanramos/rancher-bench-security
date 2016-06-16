@@ -1,5 +1,5 @@
 name: rancher-bench-security
 description: |
-  Generate report about docker specific secutiry recommendations.
+  Generate report about docker specific security recommendations.
 version: 1.11.0
 maintainer: "Daniel Garcia <daniel.garcia2.contractor@bbva.com>"

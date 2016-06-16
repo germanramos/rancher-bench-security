@@ -19,7 +19,7 @@ rancher-bench-security:
     - INTERVAL=${INTERVAL}
 
 web-server:
-  image: richarvey/nginx-php-fpm:beta70
+  image: germanramos/nginx-php-fpm:v5.6.21
   stdin_open: true
   tty: true
   labels:
